@@ -1,50 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SIC</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div id="container">
-    <h1 id="sic">[sic]</h1>
-  </div>
-  <script>
-    const container = document.getElementById('container');
-    const sic = document.getElementById('sic');
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SIC</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div id="video-bg">
+            <video autoplay muted loop playsinline>
+                <source src="video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div id="container">
+            <h1 id="sic">[sic]</h1>
+        </div>
+        <script>
+            const container = document.getElementById("container");
+            const sic = document.getElementById("sic");
 
-    let characterWidth = 20;
+            let characterWidth = 20;
 
-    const measureCharWidth = () => {
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      ctx.font = '64px "Roboto Mono", monospace';
-      characterWidth = ctx.measureText('i').width;
-    };
+            const measureCharWidth = () => {
+                const canvas = document.createElement("canvas");
+                const ctx = canvas.getContext("2d");
+                ctx.font = '64px "Roboto Mono", monospace';
+                characterWidth = ctx.measureText("i").width;
+            };
 
-    const updateText = () => {
-      const style = getComputedStyle(container);
-      const width = container.offsetWidth
-        - parseFloat(style.paddingLeft)
-        - parseFloat(style.paddingRight);
-      const fixedChars = 4; // [, s, c, ]
+            const updateText = () => {
+                const style = getComputedStyle(container);
+                const width =
+                    container.offsetWidth -
+                    parseFloat(style.paddingLeft) -
+                    parseFloat(style.paddingRight);
+                const fixedChars = 4; // [, s, c, ]
 
-      const numberOfIs = Math.max(
-        1,
-        Math.floor((width - fixedChars * characterWidth) / characterWidth)
-      );
+                const numberOfIs = Math.max(
+                    1,
+                    Math.floor(
+                        (width - fixedChars * characterWidth) / characterWidth,
+                    ),
+                );
 
-      sic.textContent = `[s${'i'.repeat(numberOfIs)}c]`;
-    };
+                sic.textContent = `[s${"i".repeat(numberOfIs)}c]`;
+            };
 
-    document.fonts.ready.then(() => {
-      measureCharWidth();
-      const observer = new ResizeObserver(updateText);
-      observer.observe(container);
-      updateText();
-    });
-  </script>
-</body>
+            document.fonts.ready.then(() => {
+                measureCharWidth();
+                const observer = new ResizeObserver(updateText);
+                observer.observe(container);
+                updateText();
+            });
+        </script>
+    </body>
 </html>
