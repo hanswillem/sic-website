@@ -6,7 +6,8 @@
 html,
 body {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
+    font-family: "Roboto Mono", monospace;
 }
 
 #video-bg {
@@ -29,7 +30,7 @@ body {
 
 #container {
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,4 +44,128 @@ body {
     color: white;
     font-family: "Roboto Mono", monospace;
     white-space: nowrap;
+}
+
+#projects {
+    position: relative;
+    background: rgb(250, 250, 250);
+    min-height: 100vh;
+    padding: 18px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 256px);
+    gap: 20px 18px;
+    max-width: calc(5 * 256px + 4 * 18px);
+    margin: 0 auto;
+}
+
+.project {
+    width: 256px;
+    line-height: 0;
+}
+
+.project-link {
+    display: block;
+}
+
+.project-square {
+    position: relative;
+    width: 256px;
+    height: 256px;
+    background: transparent;
+    overflow: hidden;
+}
+
+.project-square::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid blue;
+    pointer-events: none;
+}
+
+.project-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-title {
+    display: inline-block;
+    background: blue;
+    color: white;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1;
+    font-family: "Roboto Mono", monospace;
+    padding: 2px;
+}
+
+.project-detail-page {
+    background: rgb(250, 250, 250);
+    min-height: 100vh;
+}
+
+.project-detail {
+    width: min(100% - 36px, 720px);
+    margin: 0 auto;
+    padding-top: 18px;
+}
+
+.project-detail-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: 720px;
+    border: 0;
+}
+
+.project-detail-text {
+    width: 50%;
+    margin-top: 18px;
+    line-height: 0;
+}
+
+.project-description {
+    border: 1px solid blue;
+    color: blue;
+    font-size: 12px;
+    line-height: 1;
+    font-family: "Roboto Mono", monospace;
+    padding: 2px;
+}
+
+@media (max-width: 460px) {
+    #container {
+        padding: 0 24px;
+    }
+
+    #sic {
+        font-size: 40px;
+    }
+
+    #projects {
+        padding: 14px;
+    }
+
+    .project-grid {
+        justify-content: center;
+    }
+
+    .project-detail {
+        width: calc(100% - 28px);
+        padding-top: 14px;
+    }
+
+    .project-detail-video {
+        height: calc(100vw - 28px);
+    }
+
+    .project-detail-text {
+        width: 100%;
+        margin-top: 14px;
+    }
 }

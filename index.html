@@ -8,17 +8,76 @@
             href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="styles.css?v=3" />
     </head>
     <body>
         <div id="video-bg">
             <video autoplay muted loop playsinline>
-                <source src="video.mp4" type="video/mp4">
+                <source src="video.mp4" type="video/mp4" />
             </video>
         </div>
-        <div id="container">
-            <h1 id="sic">[sic]</h1>
-        </div>
+        <main>
+            <section id="container" aria-label="SIC">
+                <h1 id="sic">[sic]</h1>
+            </section>
+            <section id="projects" aria-label="Projects">
+                <div class="project-grid">
+                    <article class="project">
+                        <a
+                            href="projects/01/"
+                            target="_blank"
+                            rel="noopener"
+                            class="project-link"
+                        >
+                            <div class="project-square">
+                                <img
+                                    src="projects/01/mouse_retina.gif"
+                                    alt="Mouse retina"
+                                    class="project-image"
+                                />
+                            </div>
+                        </a>
+                        <p class="project-title">/mouse_retina</p>
+                    </article>
+                    <article class="project">
+                        <div class="project-square"></div>
+                        <p class="project-title">/project_02</p>
+                    </article>
+                    <article class="project">
+                        <div class="project-square"></div>
+                        <p class="project-title">/project_03</p>
+                    </article>
+                    <article class="project">
+                        <div class="project-square"></div>
+                        <p class="project-title">/project_04</p>
+                    </article>
+                    <article class="project">
+                        <div class="project-square"></div>
+                        <p class="project-title">/project_05</p>
+                    </article>
+                    <article class="project">
+                        <div class="project-square"></div>
+                        <p class="project-title">/project_06</p>
+                    </article>
+                    <article class="project">
+                        <div class="project-square"></div>
+                        <p class="project-title">/project_07</p>
+                    </article>
+                    <article class="project">
+                        <div class="project-square"></div>
+                        <p class="project-title">/project_08</p>
+                    </article>
+                    <article class="project">
+                        <div class="project-square"></div>
+                        <p class="project-title">/project_09</p>
+                    </article>
+                    <article class="project">
+                        <div class="project-square"></div>
+                        <p class="project-title">/project_10</p>
+                    </article>
+                </div>
+            </section>
+        </main>
         <script>
             const container = document.getElementById("container");
             const sic = document.getElementById("sic");
